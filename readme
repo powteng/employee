@@ -6,7 +6,7 @@
 sudo yum update -y
 sudo yum install git -y
 sudo git clone https://github.com/powteng/employee.git
-sudo cd aws-live
+sudo cd employee
 sudo yum install python-pip -y
 sudo pip3 install flask pymysql boto3
 sudo python3 EmpApp.py
