@@ -23,8 +23,8 @@ table = 'employee'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('AddEmp.html')
-    #return render_template('index.html')
+    #return render_template('AddEmp.html')
+    return render_template('index.html')
 
 #@app.route("/about", methods=['POST'])
 #def about():
@@ -33,6 +33,10 @@ def home():
 @app.route("/about", methods=['GET', 'POST'])
 def about():
     return render_template('About.html')
+
+@app.route("/addNew", methods=['GET', 'POST'])
+def add():
+    return render_template('AddEmp.html')
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
