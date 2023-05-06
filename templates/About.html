@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Management System</title>
+	<style type="text/css">
+		/* Style for header */
+		.header {
+			display: flex;
+			flex-direction: row;
+			background-color: #333;
+			padding: 10px;
+		}
+
+		.header h1 {
+			color: white;
+			margin: 0;
+			flex-grow: 1;
+		}
+
+		.header a {
+			color: white;
+			margin-right: 10px;
+			text-decoration: none;
+			padding: 5px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		.avatar-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+height: 100%;
+		}
+
+		.avatar {
+			margin: 20px;
+			border-radius: 50%;
+			overflow: hidden;
+			width: 200px;
+			height: 200px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		}
+
+		.avatar img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.description-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.description {
+			text-align: center;
+			margin: 20px;
+			max-width: 400px;
+			font-size: 20px;
+			line-height: 1.5;
+		}
+
+		/* Style for footer */
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #333;
+			color: white;
+			padding: 10px;
+			box-sizing: border-box;
+			text-align: center;
+			z-index:2;
+		}
+
+		.content {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px; /* adjust the value as needed */
+}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>Employee Management System</h1>
+		<a href="/">Home</a>
+		<a href="/about">About</a>
+	</div>
+	<div class="content">
+		<div class="row">
+			<div class="avatar" style="margin-left:120px">
+				<img src="/templates/images/pow.png" alt="Avatar 1">
+			</div>
+			<div class="description">
+				<h2>Pow Zheng Teng</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit, ipsum quis varius sagittis, sapien elit sodales elit, ut sollicitudin massa eros sit amet lectus. Sed eget bibendum ex. Nam a luctus libero, sed volutpat velit. Duis euismod, nibh id maximus rutrum, nibh nibh iaculis ipsum, at pulvinar justo dolor vel ante. </p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="avatar" style="margin-left:120px">
+				<img src="/templates/images/ek.jpg" alt="Avatar 2">
+			</div>
+			<div class="description">
+				<h2>Jane Smith</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit, ipsum quis varius sagittis, sapien elit sodales elit, ut sollicitudin massa eros sit amet lectus. Sed eget bibendum ex. Nam a luctus libero, sed volutpat
+</div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>&copy; 2023 Employee Management System</p>
+	</div>
+</body>
+</html>
+
+</body>
+</html>
