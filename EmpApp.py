@@ -40,7 +40,7 @@ def addNew():
 def viewEmp():
     return render_template('employee/GetEmp.html', employee=list_employee())
 
-add employee to database and show
+#add employee to database and show
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
     fn = request.form['full_name']
