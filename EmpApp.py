@@ -35,15 +35,14 @@ def about():
     return render_template('About.html')
 
 #user management
-@app.route("/userMain", methods=['GET', 'POST'])
-def userMain():
-    #return render_template('AddEmp.html')
-    return render_template('employee/userMain.html')
+# @app.route("/userMain", methods=['GET', 'POST'])
+# def userMain():
+#     return render_template('employee/userMain.html')
 
 #go to add new employee page
-@app.route("/addNew", methods=['GET', 'POST'])
-def addNew():
-    return render_template('employee/AddEmp.html')
+# @app.route("/addNew", methods=['GET', 'POST'])
+# def addNew():
+#     return render_template('employee/AddEmp.html')
 
 #fetch data and go to view all employee 
 # @app.route("/view_emp", methods=['GET'])
@@ -51,16 +50,16 @@ def addNew():
 #     return render_template('employee/GetEmp.html', employee=list_employee())
 
 #add employee to database and show
-@app.route("/addemp", methods=['POST'])
-def AddEmp():
-    fn = request.form['full_name']
-    role = request.form['role']
-    email = request.form['email']
-    phone = request.form['phone']
-    gender = request.form['gender']
-    photo = request.files['photo']
-    ic = request.form['ic']
-    return render_template('employee/AddEmpOutput.html', name=add_employee(fn, role, email, gender, phone, photo, ic))    
+# @app.route("/addemp", methods=['POST'])
+# def AddEmp():
+#     fn = request.form['full_name']
+#     role = request.form['role']
+#     email = request.form['email']
+#     phone = request.form['phone']
+#     gender = request.form['gender']
+#     photo = request.files['photo']
+#     ic = request.form['ic']
+#     return render_template('employee/AddEmpOutput.html', name=add_employee(fn, role, email, gender, phone, photo, ic))    
 
 # #delete employee
 # @app.route("/delete_emp/<id>", methods=['GET'])
