@@ -30,6 +30,24 @@
 			background-color: #555;
 		}
 
+		/* Style for table */
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-top: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+		}
+
+		th, td {
+			text-align: left;
+			padding: 12px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
 		/* Style for footer */
 		.footer {
 			position: fixed;
@@ -41,8 +59,7 @@
 			padding: 10px;
 			box-sizing: border-box;
 			text-align: center;
-			z-index:2;
-			margin-top:100px;
+			z-index: 2;
 		}
 	</style>
 </head>
@@ -54,12 +71,12 @@
 	</div>
 	
 	<div class="container-fluid py-5">
-    <div class="container">
-      <a href="/add_emp" class="nav-item nav-link">Add Emp</a>
+    <div class="container" style="margin-top:40px;">
+      <a href="/addNew" style="background-color: #007bff; color: #fff; padding: 10px 15px; border-radius: 5px; text-decoration: none;">Add Emp</a>
 
-      <table class="table align-middle mb-0 bg-white">
-        <thead class="bg-light">
-          <tr>
+      <table>
+        <thead>
+          <tr style="background-color: #007bff; color: #fff;">
             <th>Name</th>
             <th>Gender</th>
             <th>Role</th>
@@ -72,41 +89,44 @@
 
           <tr>
             <td>
-              <div class="d-flex align-items-center">
-                <img src={{"https://assignmenttesting.s3.amazonaws.com/"+ employee.s3_photo_key}} alt="" style="width: 45px; height: 45px"
-                  class="rounded-circle" />
-                <div class="ms-3">
-                  <p class="fw-bold mb-1">{{employee.first_name +  " " + employee.last_name }}</p>
-                  <p class="text-muted mb-0">{{employee.email}}</p>
+              <div style="display: flex; align-items: center;">
+                <img src={{"https://assignmenttesting.s3.amazonaws.com/"+ employee.s3_photo_key}} alt="" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 10px;" />
+                <div>
+                  <p style="font-weight: bold; margin-bottom: 5px;">{{employee.full_name }}</p>
+                  <p style="color: #777; margin: 0;">{{employee.email}}</p>
                 </div>
               </div>
             </td>
             <td>
-              <p class="fw-normal mb-1">{{employee.gender}}</p>
+              <p style="font-weight: normal; margin: 0;">{{employee.gender}}</p>
             </td>
             <td>
-              <p class="fw-normal mb-1">{{employee.role}}</p>
-            </td>
-            <!-- <td>
-              <span class="badge badge-success rounded-pill d-inline">Active</span>
-            </td> -->
-            <td>{{employee.phone}}</td>
-            <td>
-              <a href={{"/edit_emp/" + employee.emp_id|string}}>Edit</a>
-              <a href={{"/delete_emp/" + employee.emp_id|string}}>Delete</a>
-            </td>
-          </tr>
-          {% endfor %}
+              <p style="font-weight: normal; margin: 0;">{{employee.role}}</p>
+</td>
+        <td>
+          <p style="font-weight: normal; margin: 0;">{{employee.phone_number}}</p>
+        </td>
+        <td>
+          <a href="/edit_emp/{{employee.id}}" style="background-color: #007bff; color: #fff; padding: 5px 10px; border-radius: 5px; text-decoration: none; margin-right: 5px;">Edit</a>
+          <a href="/delete_emp/{{employee.id}}" style="background-color: #dc3545; color: #fff; padding: 5px 10px; border-radius: 5px; text-decoration: none;">Delete</a>
+        </td>
+      </tr>
 
-        </tbody>
-      </table>
+      {% endfor %}
+    </tbody>
+  </table>
 
-    </div>
-	
-
-<div class="footer">
-<p>© 2023 Employee Management System</p>
 </div>
-
+  </div>
+  <div class="footer">
+  	<p>© 2023 Employee Management System</p>
+  </div>
 </body>
 </html>
+
+
+
+
+
+
+
