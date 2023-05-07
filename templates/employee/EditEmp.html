@@ -209,13 +209,11 @@ input[type="email"],input[type="tel"] {
 			<script>
 			  // Validation code
 			  const form = document.getElementById('myForm');
-			  const fullName = document.getElementById('full_name');
-			  const icNum = document.getElementById('ic_num');
-			  const role = document.getElementById('role');
+			  const fullName = document.getElementById('full_name');		  
 			  const email = document.getElementById('email');
 			  const phone = document.getElementById('phone');
 			  const gender = document.getElementsByName('gender');
-			  const photo = document.getElementById('photo');
+			  
 
 			  form.addEventListener('submit', (e) => {
 			    let errors = [];
@@ -223,16 +221,6 @@ input[type="email"],input[type="tel"] {
 			    // Full Name validation
 			    if (fullName.value === '') {
 			      errors.push('Full Name is required');
-			    }
-
-			    // IC Number validation
-			    if (!icNum.checkValidity()) {
-			      errors.push('IC Number must be 12 digits');
-			    }
-
-			    // Role validation
-			    if (role.value === '') {
-			      errors.push('Role is required');
 			    }
 
 			    // Email validation
@@ -248,11 +236,6 @@ input[type="email"],input[type="tel"] {
 			    // Gender validation
 			    if (role.value === '') {
 			      errors.push('Gender is required');
-			    }
-
-			    // Photo validation
-			    if (photo.value === '') {
-			      errors.push('Photo is required');
 			    }
 
 			    // Display errors or submit form
