@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from pymysql import connections
 import os
 import boto3
@@ -7,6 +7,7 @@ from botocore import UNSIGNED
 from botocore.client import Config
 from botocore.handlers import disable_signing
 from employee import add_employee, edit_employee, list_employee, delete_employee, select_employee
+from leave import add_leave
 
 app = Flask(__name__)
 
@@ -72,7 +73,12 @@ def UpdateEmpRec():
 #user management
 @app.route("/leave", methods=['GET', 'POST'])
 def leaveMain():
-    return render_template('leaveMain/leave.html')
+    return render_template('leaveMain/leave.html', employees=list_employee())
+
+@app.route("/add_leave_post", methods=['POST'])
+def addLeave():
+    add_leave(request.form)
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
