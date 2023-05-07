@@ -181,20 +181,20 @@ input[type="email"],input[type="tel"] {
 		<main>
 			<form action="/edit_emp" autocomplete="on" method="POST" enctype="multipart/form-data">
   <label for="full_name">Full Name</label>
-  <input type="text" id="full_name" name="full_name" value="<?php echo $employee['full_name']; ?>" required>
+  <input type="text" id="full_name" name="full_name" value={{employee.full_name}} required>
 
   <label for="email">Email</label>
-  <input type="email" id="email" name="email" value="<?php echo $employee['email']; ?>" required>
+  <input type="email" id="email" name="email" value={{employee.email}} required>
 
   <label for="phone">Phone</label>
-  <input type="tel" id="phone" name="phone" value="<?php echo $employee['phone']; ?>" required>
+  <input type="tel" id="phone" name="phone" value={{employee.phone}} required>
 
   <label for="gender">Gender</label>
   <select id="gender" name="gender">
     <option value="">Select Gender</option>
-    <option value="male" <?php if($employee['gender'] == 'male') echo 'selected'; ?>>Male</option>
-    <option value="female" <?php if($employee['gender'] == 'female') echo 'selected'; ?>>Female</option>
-    <option value="others" <?php if($employee['gender'] == 'others') echo 'selected'; ?>>Others</option>
+    <option value="male" {% if employee.gender == "male" %}selected{% endif %} >Male</option>
+    <option value="female" {% if employee.gender == "female" %}selected{% endif %} >Female</option>
+    <option value="others" {% if employee.gender == "others" %}selected{% endif %} >Others</option>
   </select>
 </form>
 
