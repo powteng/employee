@@ -76,7 +76,7 @@ def UpdateEmp(id):
     
 #update record for employee    
 @app.route("/edit_emp", methods=['POST'])
-def UpdateEmp():
+def UpdateEmpRec():
     edit_employee(request.form)
     return redirect('/view_emp')  
 
