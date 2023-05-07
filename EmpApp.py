@@ -25,12 +25,12 @@ output = {}
 table = 'employee'
 
 #go to home page
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
 def index():
     return render_template('index.html')
 
 #go to about
-@app.route("/about", methods=['GET', 'POST'])
+@app.route("/about", methods=['GET'])
 def about():
     return render_template('About.html')
 
