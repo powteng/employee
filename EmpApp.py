@@ -61,13 +61,13 @@ def delEmp(id):
 #go to update employee
 @app.route("/edit_emp/<id>", methods=['GET'])
 def UpdateEmp(id):
-#     return render_template('employee/EditEmp.html', employee=select_employee(id))
+    return render_template('employee/EditEmp.html', employee=select_employee(id))
     
 # #update record for employee    
-# @app.route("/edit_emp", methods=['POST'])
-# def UpdateEmpRec():
-#     edit_employee(request.form)
-#     return redirect('/view_emp')  
+@app.route("/edit_emp", methods=['POST'])
+def UpdateEmpRec():
+    edit_employee(request.form)
+    return redirect('/view_emp')  
 
 
 if __name__ == '__main__':
