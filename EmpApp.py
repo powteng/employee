@@ -54,7 +54,7 @@ def view_emp():
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
     fn = request.form['full_name']
-    role = request.form['position']
+    role = request.form['role']
     email = request.form['email']
     phone = request.form['phone']
     gender = request.form['gender']
