@@ -16,13 +16,12 @@ def add_employee(fn, ro, em, ge, ph, photo, ic):
     Create new employee
     Args:
         fn (function): _description_
-        ln (_type_): _description_
-        po (_type_): _description_
-        em (_type_): _description_
-        ge (_type_): _description_
-        ph (_type_): _description_
-        photo (_type_): _description_
         ic (_type_): _description_
+        ro (_type_): _description_
+        em (_type_): _description_
+        ph (_type_): _description_
+        ge (_type_): _description_
+        photo (_type_): _description_      
     Returns:
         _type_: _description_
     """
