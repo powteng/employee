@@ -64,7 +64,7 @@ def list_employee():
     cursor = conn.cursor(DictCursor)
 
     with cursor as cursor_:
-        sql = "SELECT emp_id, full_name, email, role, phone, gender, photo_key, is_delete FROM " + table + " WHERE is_delete = 0"    
+        sql = "SELECT emp_id, full_name, email, role, phone, gender, s3_photo_key, is_delete FROM " + table + " WHERE is_delete = 0"    
         cursor_.execute(sql)
         employees = cursor.fetchall()
         cursor_.close()
