@@ -21,46 +21,46 @@ def index():
     return render_template('index.html')
 
 #go to about
-# @app.route("/about", methods=['GET'])
-# def about():
-#     return render_template('About.html')
+@app.route("/about", methods=['GET'])
+def about():
+    return render_template('About.html')
 
 #user management
-# @app.route("/userMain", methods=['GET', 'POST'])
-# def userMain():
-#     return render_template('employee/userMain.html')
+@app.route("/userMain", methods=['GET', 'POST'])
+def userMain():
+    return render_template('employee/userMain.html')
 
 #go to add new employee page
-# @app.route("/addNew", methods=['GET', 'POST'])
-# def addNew():
-#     return render_template('employee/AddEmp.html')
+@app.route("/addNew", methods=['GET', 'POST'])
+def addNew():
+    return render_template('employee/AddEmp.html')
 
 #fetch data and go to view all employee 
-# @app.route("/view_emp", methods=['GET'])
-# def viewEmp():
-#     return render_template('employee/GetEmp.html', employee=list_employee())
+@app.route("/view_emp", methods=['GET'])
+def viewEmp():
+    return render_template('employee/GetEmp.html', employee=list_employee())
 
-#add employee to database and show
-# @app.route("/addemp", methods=['POST'])
-# def AddEmp():
-#     fn = request.form['full_name']
-#     role = request.form['role']
-#     email = request.form['email']
-#     phone = request.form['phone']
-#     gender = request.form['gender']
-#     photo = request.files['photo']
-#     ic = request.form['ic']
-#     return render_template('employee/AddEmpOutput.html', name=add_employee(fn, role, email, gender, phone, photo, ic))    
+add employee to database and show
+@app.route("/addemp", methods=['POST'])
+def AddEmp():
+    fn = request.form['full_name']
+    role = request.form['role']
+    email = request.form['email']
+    phone = request.form['phone']
+    gender = request.form['gender']
+    photo = request.files['photo']
+    ic = request.form['ic']
+    return render_template('employee/AddEmpOutput.html', name=add_employee(fn, role, email, gender, phone, photo, ic))    
 
-# #delete employee
-# @app.route("/delete_emp/<id>", methods=['GET'])
-# def delEmp(id):
-#     delete_employee(id)
-#     return redirect('/view_emp')   
+#delete employee
+@app.route("/delete_emp/<id>", methods=['GET'])
+def delEmp(id):
+    delete_employee(id)
+    return redirect('/view_emp')   
 
-# #go to update employee
-# @app.route("/edit_emp/<id>", methods=['GET'])
-# def UpdateEmp(id):
+#go to update employee
+@app.route("/edit_emp/<id>", methods=['GET'])
+def UpdateEmp(id):
 #     return render_template('employee/EditEmp.html', employee=select_employee(id))
     
 # #update record for employee    
