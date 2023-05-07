@@ -21,9 +21,9 @@ def index():
     return render_template('index.html')
 
 #go to about
-@app.route("/about", methods=['GET'])
-def about():
-    return render_template('About.html')
+# @app.route("/about", methods=['GET'])
+# def about():
+#     return render_template('About.html')
 
 #user management
 # @app.route("/userMain", methods=['GET', 'POST'])
