@@ -62,6 +62,13 @@ def AddEmp():
     ic = request.form['ic']
     return render_template('employee/AddEmpOutput.html', name=add_employee(fn, role, email, phone, gender, photo, ic))    
 
+#delete employee
+@app.route("/delete_emp/<id>", methods=['GET'])
+def delEmp(id):
+    delete_employee(id)
+    # return redirect(serverurl + '/view_emp')
+    return redirect('/list_emp')   
+
 #update employee
 @app.route("/edit_emp/<id>", methods=['GET'])
 def UpdateEmp(id):
