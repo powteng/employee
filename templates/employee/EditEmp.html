@@ -68,17 +68,17 @@
 		}
 
 		select {
-  padding: 10px;
-  border: 1px solid #CCCCCC;
-  border-radius: 5px;
-  width: 48%;
-  font-size: 16px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  color: #555555;
-  display: inline-block;
-  margin-right: 4%;
-}
+		  padding: 10px;
+		  border: 1px solid #CCCCCC;
+		  border-radius: 5px;
+		  width: 48%;
+		  font-size: 16px;
+		  margin-bottom: 15px;
+		  box-sizing: border-box;
+		  color: #555555;
+		  display: inline-block;
+		  margin-right: 4%;
+		}
 
 		.container {
 			width: 80%;
@@ -104,7 +104,8 @@
 		input[type="number"],
 		input[type="text"],
 		input[type="file"],
-input[type="email"],input[type="tel"] {
+		input[type="email"],
+		input[type="tel"] {
 			padding: 10px;
 			border: 1px solid #CCCCCC;
 			border-radius: 5px;
@@ -180,33 +181,30 @@ input[type="email"],input[type="tel"] {
 	<div class="container">
 		<main>
 			<form action="/edit_emp" autocomplete="on" method="POST" enctype="multipart/form-data">
-  <label for="full_name">Full Name</label>
-  <input type="text" id="full_name" name="full_name" value={{employee.full_name}} required>
+			  <label for="full_name">Full Name</label>
+			  <input type="text" id="full_name" name="full_name" value={{employee.full_name}} required>
 
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" value={{employee.email}} required>
+			  <label for="email">Email</label>
+			  <input type="email" id="email" name="email" value={{employee.email}} required>
 
-  <label for="phone">Phone</label>
-  <input type="tel" id="phone" name="phone" value={{employee.phone}} required>
+			  <label for="phone">Phone</label>
+			  <input type="tel" id="phone" name="phone" value={{employee.phone}} required>
 
-  <label for="gender">Gender</label>
-  <select id="gender" name="gender">
-    <option value="">Select Gender</option>
-    <option value="male" {% if employee.gender == "male" %}selected{% endif %} >Male</option>
-    <option value="female" {% if employee.gender == "female" %}selected{% endif %} >Female</option>
-    <option value="others" {% if employee.gender == "others" %}selected{% endif %} >Others</option>
-  </select>
-</form>
+			  <label for="gender">Gender</label>
+			  <select id="gender" name="gender">
+			    <option value="">Select Gender</option>
+			    <option value="male" {% if employee.gender == "male" %}selected{% endif %} >Male</option>
+			    <option value="female" {% if employee.gender == "female" %}selected{% endif %} >Female</option>
+			    <option value="others" {% if employee.gender == "others" %}selected{% endif %} >Others</option>
+			  </select>
 
+			  <div style="text-align: center;">
+			    <button type="submit" class="btn">Update Employee</button>
+			    <a href="/view_emp" class="btn-secondary">View Employees</a>
+			  </div>
+			</form>
 
-
-  <div style="text-align: center;">
-    <button type="submit" class="btn">Update Employee</button>
-    <a href="/view_emp" class="btn-secondary">View Employees</a>
-  </div>
-</form>
-
-			<script>
+<!-- 			<script>
 			  // Validation code
 			  const form = document.getElementById('myForm');
 			  const fullName = document.getElementById('full_name');		  
@@ -244,7 +242,7 @@ input[type="email"],input[type="tel"] {
 			      alert(errors.join('\n'));
 			    }
 		  	});
-		</script>	
+		</script>	 -->
 			
 		</main>
 
