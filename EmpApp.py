@@ -69,6 +69,11 @@ def UpdateEmpRec():
     edit_employee(request.form)
     return redirect('/view_emp')  
 
+#user management
+@app.route("/leave", methods=['GET', 'POST'])
+def userMain():
+    return render_template('leaveMain/leave.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
