@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Management System</title>
+	<style type="text/css">
+		/* Style for header */
+		.header {
+			display: flex;
+			flex-direction: row;
+			background-color: #333;
+			padding: 10px;
+		}
+
+		.header h1 {
+			color: white;
+			margin: 0;
+			flex-grow: 1;
+		}
+
+		.header a {
+			color: white;
+			margin-right: 10px;
+			text-decoration: none;
+			padding: 5px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		.header a:hover {
+			background-color: #555;
+		}
+
+		/* Style for footer */
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #333;
+			color: white;
+			padding: 10px;
+			box-sizing: border-box;
+			text-align: center;
+			z-index:2;
+			margin-top:100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>Employee Management System</h1>
+		<a href="/">Home</a>
+		<a href="/about">About</a>
+	</div>
+	
+	<div class="container-fluid py-5">
+    <div class="container">
+      <a href="/add_emp" class="nav-item nav-link">Add Emp</a>
+
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Role</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for employee in employees %}
+
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <img src={{"https://assignmenttesting.s3.amazonaws.com/"+ employee.s3_photo_key}} alt="" style="width: 45px; height: 45px"
+                  class="rounded-circle" />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{employee.first_name +  " " + employee.last_name }}</p>
+                  <p class="text-muted mb-0">{{employee.email}}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{employee.gender}}</p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{employee.role}}</p>
+            </td>
+            <!-- <td>
+              <span class="badge badge-success rounded-pill d-inline">Active</span>
+            </td> -->
+            <td>{{employee.phone}}</td>
+            <td>
+              <a href={{"/edit_emp/" + employee.emp_id|string}}>Edit</a>
+              <a href={{"/delete_emp/" + employee.emp_id|string}}>Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+    </div>
+	
+
+<div class="footer">
+<p>© 2023 Employee Management System</p>
+</div>
+
+</body>
+</html>
