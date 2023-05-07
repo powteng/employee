@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from pymysql import connections
 import os
 import boto3
@@ -20,7 +20,7 @@ db_conn = connections.Connection(
 output = {}
 table = 'employee'
 
-
+#home page
 @app.route("/", methods=['GET', 'POST'])
 def home():
     #return render_template('AddEmp.html')
@@ -30,22 +30,27 @@ def home():
 #def about():
     #return render_template('About.html')
 
+#about
 @app.route("/about", methods=['GET', 'POST'])
 def about():
     return render_template('About.html')
 
+#add new employee
 @app.route("/addNew", methods=['GET', 'POST'])
 def add():
     return render_template('AddEmp.html')
 
+#add to database and show
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
-    emp_id = request.form['emp_id']
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    pri_skill = request.form['pri_skill']
-    location = request.form['location']
-    emp_image_file = request.files['emp_image_file']
+    fn = request.form['full_name']
+    role = request.form['position']
+    email = request.form['email']
+    phone = request.form['phone']
+    gender = request.form['gender']
+    photo = request.form['photo']
+    ic = request.files['ic']
+    
 
     insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
