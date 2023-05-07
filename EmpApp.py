@@ -60,7 +60,7 @@ def AddEmp():
     gender = request.form['gender']
     photo = request.files['photo']
     ic = request.form['ic']
-    return render_template('employee/AddEmpFormOutput.html', name=add_employee(fn, role, email, phone, gender, photo, ic))    
+    return render_template('employee/AddEmpOutput.html', name=add_employee(fn, role, email, phone, gender, photo, ic))    
 
 #update employee
 @app.route("/edit_emp/<id>", methods=['GET'])
