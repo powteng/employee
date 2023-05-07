@@ -28,7 +28,6 @@ def add_employee(fn, ro, em, ge, ph, photo, ic):
     """
 
     s3_photo_key = "emp-id-" + str(em) + "_image_file" + os.path.splitext(photo.filename)[1]
-    #s3_ic_key = "emp-id-" + str(em) + "_ic_file" + os.path.splitext(ic.filename)[1]
     s3 = boto3.resource('s3', config=Config(signature_version=UNSIGNED))
     s3.meta.client.meta.events.register('choose-signer.s3.*', disable_signing)
 
@@ -54,7 +53,7 @@ def add_employee(fn, ro, em, ge, ph, photo, ic):
     finally:
         cursor.close()
 
-    return emp_name
+    return fn
 
 def list_employee():
     """
