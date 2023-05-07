@@ -58,8 +58,8 @@ def AddEmp():
     email = request.form['email']
     phone = request.form['phone']
     gender = request.form['gender']
-    photo = request.form['photo']
-    ic = request.files['ic']
+    photo = request.files['photo']
+    ic = request.form['ic']
     return render_template('employee/AddEmpFormOutput.html', name=add_employee(fn, role, email, phone, gender, photo, ic))    
 
 #update employee
