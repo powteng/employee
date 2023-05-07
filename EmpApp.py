@@ -75,7 +75,7 @@ def UpdateEmpRec():
 def leaveMain():
     return render_template('leaveMain/leave.html', employees=list_employee())
 
-@app.route("/add_leave_post", methods=['POST'])
+@app.route("/apply_leave", methods=['POST'])
 def addLeave():
     add_leave(request.form)
     return render_template('index.html')
