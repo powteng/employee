@@ -41,7 +41,7 @@ def add_employee(fn, ro, em, ge, ph, photo, ic):
         try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
             s3.Bucket(custombucket).put_object(Key=s3_photo_key, Body=photo)
-            s3.Bucket(custombucket).put_object(Key=s3_ic_key, Body=ic)
+            #s3.Bucket(custombucket).put_object(Key=s3_ic_key, Body=ic)
 
         except Exception as e:
             print(str(e) + str('-S3'))
