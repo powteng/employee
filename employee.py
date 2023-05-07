@@ -6,7 +6,7 @@ from botocore import UNSIGNED
 from botocore.client import Config
 from botocore.handlers import disable_signing
 from config import *
-from db import db_conn, db_close
+from db_connection import db_conn, db_close
 table = "employee"
 bucket = custombucket
 region = customregion
