@@ -76,7 +76,6 @@ def list_employee():
 def edit_employee(data):
     print(data)
     fn = data['full_name']
-    ro = data['role']
     em = data['email']
     ge = data['gender']
     ph = data['phone']
@@ -88,13 +87,12 @@ def edit_employee(data):
     with cursor as cursor_:
         sql = "UPDATE "+ table +" SET \
         full_name = %s, \
-        role = %s, \
         email = %s, \
         gender = %s, \
         phone = %s \
         WHERE emp_id = %s"
 
-        cursor_.execute(sql, (fn, ro, em, ge, ph, emp_id))
+        cursor_.execute(sql, (fn, em, ge, ph, emp_id))
         conn.commit()
         cursor_.close()
 
