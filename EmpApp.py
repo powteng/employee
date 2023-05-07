@@ -39,7 +39,7 @@ def about():
 @app.route("/userMain", methods=['GET', 'POST'])
 def home():
     #return render_template('AddEmp.html')
-    return render_template('userMain.html')
+    return render_template('employee/userMain.html')
 
 #go to add new employee page
 @app.route("/addNew", methods=['GET', 'POST'])
