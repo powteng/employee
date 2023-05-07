@@ -27,7 +27,6 @@ table = 'employee'
 #go to home page
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    #return render_template('AddEmp.html')
     return render_template('index.html')
 
 #go to about
@@ -37,18 +36,18 @@ def about():
 
 #user management
 @app.route("/userMain", methods=['GET', 'POST'])
-def home():
+def userMain():
     #return render_template('AddEmp.html')
     return render_template('employee/userMain.html')
 
 #go to add new employee page
 @app.route("/addNew", methods=['GET', 'POST'])
-def add():
+def addNew():
     return render_template('employee/AddEmp.html')
 
 #go to view all employee
 @app.route("/view_emp", methods=['GET'])
-def add():
+def view_emp():
     return render_template('employee/GetEmp.html', employee=list_employee())
 
 #add employee to database and show
