@@ -45,7 +45,7 @@ def userMain():
 def addNew():
     return render_template('employee/AddEmp.html')
 
-#go to view all employee
+#fetch data and go to view all employee 
 @app.route("/view_emp", methods=['GET'])
 def view_emp():
     return render_template('employee/GetEmp.html', employee=list_employee())
@@ -62,7 +62,10 @@ def AddEmp():
     ic = request.files['ic']
     return render_template('employee/AddEmpFormOutput.html', name=add_employee(fn, role, email, phone, gender, photo, ic))    
 
-
+#update employee
+@app.route("/edit_emp/<id>", methods=['GET'])
+def UpdateEmp(id):
+    return render_template('employee/EditEmp.html', employee=select_employee(id))
 
 
 if __name__ == '__main__':
