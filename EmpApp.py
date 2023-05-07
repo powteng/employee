@@ -71,7 +71,7 @@ def UpdateEmpRec():
 
 #user management
 @app.route("/leave", methods=['GET', 'POST'])
-def userMain():
+def leaveMain():
     return render_template('leaveMain/leave.html')
 
 
