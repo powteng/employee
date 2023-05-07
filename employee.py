@@ -11,7 +11,7 @@ table = "employee"
 bucket = custombucket
 region = customregion
 
-def add_employee(fn, ic, ro, em, ge, ph, photo):
+def add_employee(fn, ro, em, ge, ph, photo, ic):
     """
     Create new employee
     Args:
