@@ -67,7 +67,7 @@ def AddEmp():
 def delEmp(id):
     delete_employee(id)
     # return redirect(serverurl + '/view_emp')
-    return redirect('/list_emp')   
+    return redirect('/view_emp')   
 
 #go to update employee
 @app.route("/edit_emp/<id>", methods=['GET'])
