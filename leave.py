@@ -32,4 +32,4 @@ def add_leave(data):
     finally:
         cursor.close()
         db_close(conn)
-        return '''<script>alert('Form submitted!');</script>'''
+        return '''<script>alert('Leave submitted!');</script>'''
