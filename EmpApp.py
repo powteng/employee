@@ -47,7 +47,7 @@ def addNew():
 
 #fetch data and go to view all employee 
 @app.route("/view_emp", methods=['GET'])
-def view_emp():
+def viewEmp():
     return render_template('employee/GetEmp.html', employee=list_employee())
 
 #add employee to database and show
