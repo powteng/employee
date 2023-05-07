@@ -35,7 +35,7 @@ def add_employee(fn, ic, ro, em, ge, ph, photo):
     try:
         conn = db_conn()
         cursor = conn.cursor()
-        insert_sql = "INSERT INTO " + table + " VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 0)"
+        insert_sql = "INSERT INTO " + table + " VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, 0)"
         cursor.execute(insert_sql, (None, fn, ic, ro, em, ph, ge, s3_photo_key, s3_ic_key))
         conn.commit()
         try:
