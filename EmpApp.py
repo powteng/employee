@@ -26,7 +26,7 @@ table = 'employee'
 
 #go to home page
 @app.route("/", methods=['GET', 'POST'])
-def home():
+def index():
     return render_template('index.html')
 
 #go to about
