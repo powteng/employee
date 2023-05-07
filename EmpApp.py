@@ -62,23 +62,22 @@ def AddEmp():
     ic = request.form['ic']
     return render_template('employee/AddEmpOutput.html', name=add_employee(fn, role, email, phone, gender, photo, ic))    
 
-#delete employee
-@app.route("/delete_emp/<id>", methods=['GET'])
-def delEmp(id):
-    delete_employee(id)
-    # return redirect(serverurl + '/view_emp')
-    return redirect('/view_emp')   
+# #delete employee
+# @app.route("/delete_emp/<id>", methods=['GET'])
+# def delEmp(id):
+#     delete_employee(id)
+#     return redirect('/view_emp')   
 
-#go to update employee
-@app.route("/edit_emp/<id>", methods=['GET'])
-def UpdateEmp(id):
-    return render_template('employee/EditEmp.html', employee=select_employee(id))
+# #go to update employee
+# @app.route("/edit_emp/<id>", methods=['GET'])
+# def UpdateEmp(id):
+#     return render_template('employee/EditEmp.html', employee=select_employee(id))
     
-#update record for employee    
-@app.route("/edit_emp", methods=['POST'])
-def UpdateEmpRec():
-    edit_employee(request.form)
-    return redirect('/view_emp')  
+# #update record for employee    
+# @app.route("/edit_emp", methods=['POST'])
+# def UpdateEmpRec():
+#     edit_employee(request.form)
+#     return redirect('/view_emp')  
 
 
 if __name__ == '__main__':
