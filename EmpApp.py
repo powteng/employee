@@ -116,8 +116,8 @@ def addPayroll():
     return redirect('/listpayroll')
 
 #list payroll
-@app.route("/listLeave", methods=['GET'])
-def viewLeave():
+@app.route("/listpayroll", methods=['GET'])
+def viewPayroll():
     return render_template('payroll/listpayroll.html', payroll=list_payroll())
 
 #delete payroll
