@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Management System</title>
+	<style type="text/css">
+		/* Style for header */
+		.header {
+			display: flex;
+			flex-direction: row;
+			background-color: #333;
+			padding: 10px;
+		}
+       
+		.header h1 {
+			color: white;
+			margin: 0;
+			flex-grow: 1;
+		}
+
+		.header a {
+			color: white;
+			margin-right: 10px;
+			text-decoration: none;
+			padding: 5px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		.header a:hover {
+			background-color: #555;
+		}
+
+		/* Style for footer */
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #333;
+			color: white;
+			padding: 10px;
+			box-sizing: border-box;
+			text-align: center;
+			z-index:2;
+		}
+
+		/* Style for table */
+		table {
+            margin-top: 50px;
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 50px;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #333;
+			color: white;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>Employee Management System</h1>
+		<a href="/">Home</a>
+		<a href="/about">About</a>
+	</div>
+	
+	<table>
+		<thead>
+			<tr>
+				
+				<th>Employee Name</th>
+				<th>Leave Type</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				
+				<td>John Doe</td>
+				<td>Sick Leave</td>
+				<td>2023-05-01</td>
+				<td>2023-05-03</td>
+				
+			</tr>
+			<tr>
+				
+				<td>Jane Smith</td>
+				<td>Vacation</td>
+				<td>2023-06-01</td>
+				<td>2023-06-07</td>
+				
+			</tr>
+			<tr>
+				
+				<td>Bob Johnson</td>
+				<td>Sick Leave</td>
+				<td>2023-07-01</td>
+				<td>2023-07-03</td>
+				
+			</tr>
+		</tbody>
+	</table>
+    <a href="/addNew" style="background-color: #007bff; color: #fff; padding: 10px 15px; border-radius: 5px; text-decoration: none;">Apply Leave</a>
+
+	<div class="footer">
+		<p>&copy; 2023 Employee Management System</p>
+	</div>
+
+</body>
+</html>
