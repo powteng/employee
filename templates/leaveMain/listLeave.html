@@ -66,6 +66,12 @@
 		tr:nth-child(even) {
 			background-color: #f2f2f2;
 		}
+		
+		td img {
+		  width: 100%;
+		  max-width: 45px;
+		  height: auto;
+		}
 	</style>
 </head>
 <body>
@@ -87,30 +93,32 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				
-				<td>John Doe</td>
-				<td>Sick Leave</td>
-				<td>2023-05-01</td>
-				<td>2023-05-03</td>
-				
-			</tr>
-			<tr>
-				
-				<td>Jane Smith</td>
-				<td>Vacation</td>
-				<td>2023-06-01</td>
-				<td>2023-06-07</td>
-				
-			</tr>
-			<tr>
-				
-				<td>Bob Johnson</td>
-				<td>Sick Leave</td>
-				<td>2023-07-01</td>
-				<td>2023-07-03</td>
-				
-			</tr>
+			{% for leave in leaves %}
+
+			  <tr>
+			    <td>
+			      <div style="display: flex; align-items: center;">
+
+				<img src={{"https://powzhengteng-bucket.s3.amazonaws.com/"+ leave.s3_photo_key}} alt="" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 10px;" />
+				<div>
+				  <p style="font-weight: bold; margin-bottom: 5px;">{{leave.emp_name }}</p>
+				  <p style="color: #777; margin: 0;">{{leave.leave_type}}</p>
+				</div>
+			      </div>
+			    </td>
+			    <td>
+			      <p style="font-weight: normal; margin: 0;">{{leave.date_from}}</p>
+			    </td>
+			    <td>
+			      <p style="font-weight: normal; margin: 0;">{{leave.date_to}}</p>
+			</td>
+			<td>
+<!-- 			  <a href={{"/edit_emp/" + employee.emp_id|string}} style="background-color: #007bff; color: #fff; padding: 5px 10px; border-radius: 5px; text-decoration: none; margin-right: 5px;">Edit</a> -->
+			  <a href={{"/delete_leave/" + leave.leave_id}} style="background-color: #dc3545; color: #fff; padding: 5px 10px; border-radius: 5px; text-decoration: none;">Delete</a>
+			</td>
+		      </tr>
+
+		      {% endfor %}
 		</tbody>
 	</table>
     <a href="/addNew" style="background-color: #007bff; color: #fff; padding: 10px 15px; border-radius: 5px; text-decoration: none;">Apply Leave</a>
