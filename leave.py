@@ -48,7 +48,7 @@ def list_list():
 
     return leaves
 
-def del_leave(id):
+def delete_leave(id):
     conn = db_conn()
     cursor = conn.cursor()
 
