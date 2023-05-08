@@ -34,7 +34,7 @@ def add_leave(data):
     db_close(conn)
     return '''<script>alert('Leave submitted!');</script>'''
 
-def list_list():
+def list_leave():
     conn = db_conn()
     cursor = conn.cursor(DictCursor)
 
