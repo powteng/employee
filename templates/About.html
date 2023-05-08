@@ -82,13 +82,13 @@ height: 100%;
 	    	#avatar-image {
 			width: 200px;
 			height: 200px;
-			background-image: url("{{ url_for('static', filename='test.jpg') }}");
+			background-image: url('path/to/ek.jpg');
 			background-size: cover;
 			transition: background-image 0.5s ease;
 	    	}
 
 	    	#avatar-image:hover {
-			background-image: url('path/to/ek.jpg');
+			background-image: url("{{ url_for('static', filename='test.jpg') }}");
 	    	}
 
 
@@ -118,9 +118,7 @@ height: 100%;
 			</div>
 		</div>
 		<div class="row">
-			<div class="avatar" style="margin-left:120px">
-				<img src="{{url_for('static', filename='ek.jpg')}}" alt="Avatar 2" id="avatar-image">
-			</div>
+			<div class="avatar" style="margin-left:120px" id="avatar-image"></div>
 			<div class="description">
 				<h2>Gan Eng Kiat</h2>
 				<p>I like to play games. NO GAME NO LIFE!</p>
