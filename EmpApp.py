@@ -70,20 +70,26 @@ def UpdateEmpRec():
     edit_employee(request.form)
     return redirect('/view_emp')  
 
-#user management
+#fo to leave main page
 @app.route("/leave", methods=['GET', 'POST'])
 def leaveMain():
     return render_template('leaveMain/leavemain.html')
 
-#user management
+#go to add leave page
 @app.route("/addLeave", methods=['GET', 'POST'])
 def gotoAddLeave():
     return render_template('leaveMain/leave.html', employees=list_employee())
 
+#add leave to db
 @app.route("/apply_leave", methods=['POST'])
 def addLeave():
     add_leave(request.form)
     return render_template('index.html')
+
+#view leave
+@app.route("/listleave", methods=['GET'])
+def viewLeave():
+    return render_template('leaveMain/istLeave.html', employees=list_employee())
 
 
 if __name__ == '__main__':
