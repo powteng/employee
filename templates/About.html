@@ -82,7 +82,7 @@ height: 100%;
 	    	#avatar-image {
 			width: 200px;
 			height: 200px;
-			background-image: url('path/to/ek.jpg');
+			background-image: url("{{ url_for('static', filename='ek.jpg') }}");
 			background-size: cover;
 			transition: background-image 0.5s ease;
 	    	}
