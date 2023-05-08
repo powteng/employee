@@ -100,7 +100,7 @@ def delLeave(id):
     return redirect('/listLeave') 
 
 #go to payroll main page
-@app.route("/leave", methods=['GET', 'POST'])
+@app.route("/payrollMain", methods=['GET', 'POST'])
 def payrollMain():
     return render_template('payroll/payrollmain.html')
 
