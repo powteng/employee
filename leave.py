@@ -33,3 +33,17 @@ def add_leave(data):
     cursor.close()
     db_close(conn)
     return '''<script>alert('Leave submitted!');</script>'''
+
+def list_list():
+    conn = db_conn()
+    cursor = conn.cursor(DictCursor)
+
+    with cursor as cursor_:
+        sql = "SELECT l.*, e.s3_photo_key FROM `" + table "` l JOIN employee e ON l.emp_name = e.full_name WHERE is_Deleted = 0"    
+        cursor_.execute(sql)
+        employees = cursor.fetchall()
+        cursor_.close()
+
+    db_close(conn)
+
+    return leaves
