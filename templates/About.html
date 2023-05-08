@@ -77,14 +77,28 @@ height: 100%;
 			text-align: center;
 			z-index:2;
 		}
+		
+		
+	    	#avatar-image {
+			width: 200px;
+			height: 200px;
+			background-image: url("{{ url_for('static', filename='test.jpg') }}");
+			background-size: cover;
+			transition: background-image 0.5s ease;
+	    	}
+
+	    	#avatar-image:hover {
+			background-image: url('path/to/ek.jpg');
+	    	}
+
 
 		.content {
-display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 100px; /* adjust the value as needed */
-}
+		display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  justify-content: center;
+		  margin-bottom: 100px; /* adjust the value as needed */
+		}
 	</style>
 </head>
 <body>
@@ -105,7 +119,7 @@ display: flex;
 		</div>
 		<div class="row">
 			<div class="avatar" style="margin-left:120px">
-				<img src="{{url_for('static', filename='ek.jpg')}}" alt="Avatar 2">
+				<img src="{{url_for('static', filename='ek.jpg')}}" alt="Avatar 2" id="avatar-image">
 			</div>
 			<div class="description">
 				<h2>Gan Eng Kiat</h2>
