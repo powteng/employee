@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Apply Leave | Employee Management System</title>
+	<script src="leave.js"></script>
+	<style type="text/css">
+        
+		/* Style for header */
+		.header {
+			display: flex;
+			flex-direction: row;
+			background-color: #333;
+			padding: 10px;
+		}
+
+		.header h1 {
+			color: white;
+			margin: 0;
+			flex-grow: 1;
+		}
+
+		.header a {
+			color: white;
+			margin-right: 10px;
+			text-decoration: none;
+			padding: 5px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		.header a:hover {
+			background-color: #555;
+		}
+
+		/* Style for footer */
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #333;
+			color: white;
+			padding: 10px;
+			box-sizing: border-box;
+			text-align: center;
+			z-index:2;
+		}
+
+		form {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+	    color: white;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            border: none;
+            background-color: #777;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 90%;
+        }
+
+        button[type="submit"] {
+            padding: 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #777;
+        }
+
+        /* Responsive styling for mobile devices */
+        @media only screen and (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+            }
+
+            .header h1 {
+                margin: 10px 0;
+            }
+
+            .footer {
+                padding: 20px;
+            }
+
+            form {
+                max-width: none;
+                padding: 30px;
+            }
+
+            input[type="text"],
+            input[type="number"] {
+                margin-bottom: 10px;
+            }
+        }
+	</style>
+</head>
+<body>
+	<div class="header" style="display:flex;flex-direction:row;background-color:#333;padding:10px; margin-bottom:50px;">
+		<h1 style="color:white;margin:0;flex-grow:1;">Employee Management System</h1>
+		<a style="color: white;margin-right: 10px;text-decoration: none;padding: 5px;border-radius: 5px;transition: background-color 0.3s ease-in-out;" href="/">Home</a>
+		<a style="color: white;margin-right: 10px;text-decoration: none;padding: 5px;border-radius: 5px;transition: background-color 0.3s ease-in-out;" href="/about">About</a>
+	</div>
+
+	    <div class="content">
+<form>     
+  <label for="emp-id">Employee ID</label>
+  <select id="emp-id" name="emp-id" style="padding: 10px; border: none; background-color: #777; color: white; border-radius: 5px; margin-bottom: 20px; width: 95%;">
+    {% for employee in employees %}
+      <option value="{{ employee.emp_id }}">{{ employee.full_name }}</option>
+    {% endfor %}
+  </select>
+  <label for="salary">Salary</label>
+  <input type="number" id="salary" name="salary" placeholder="Type salary here">
+
+  <div style="text-align: center;">
+    <button type="submit">Made Payroll</button>
+  </div>
+</form>
+    </div>
+	<div class="footer">
+		<p>&copy; 2023 Employee Management System</p>
+	</div>
+</body>
+</html>

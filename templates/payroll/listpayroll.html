@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Management System</title>
+	<style type="text/css">
+		/* Style for header */
+		.header {
+			display: flex;
+			flex-direction: row;
+			background-color: #333;
+			padding: 10px;
+		}
+       
+		.header h1 {
+			color: white;
+			margin: 0;
+			flex-grow: 1;
+		}
+
+		.header a {
+			color: white;
+			margin-right: 10px;
+			text-decoration: none;
+			padding: 5px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		.header a:hover {
+			background-color: #555;
+		}
+
+		/* Style for footer */
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #333;
+			color: white;
+			padding: 10px;
+			box-sizing: border-box;
+			text-align: center;
+			z-index:2;
+		}
+
+		/* Style for table */
+		table {
+            margin-top: 50px;
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 50px;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #333;
+			color: white;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		td img {
+		  width: 100%;
+		  max-width: 45px;
+		  height: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>Employee Management System</h1>
+		<a href="/">Home</a>
+		<a href="/about">About</a>
+	</div>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Employee Name</th>
+				<th>Salary (RM)</th>	
+				<th></th>		
+			</tr>
+		</thead>
+		<tbody>
+			{% for leave in leaves %}
+			<tr>
+				
+				<td>
+					<div style="display: flex; align-items: center;">
+
+						<img src={{"https://powzhengteng-bucket.s3.amazonaws.com/"+ payroll.s3_photo_key}} alt="" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 10px;" />
+						<div>
+				  			<p style="font-weight: bold; margin-bottom: 5px;">{{payroll.emp_name }}</p>
+						</div>
+			      		</div>
+				</td>
+				<td>
+					<p style="font-weight: normal; margin: 0;">{{payroll.salary}}</p>
+				</td>
+				<td>
+					<a href={{"/delete_payroll/" + payroll.pay_id|string}} style="background-color: #dc3545; color: #fff; padding: 5px 10px; border-radius: 5px; text-decoration: none;">Delete</a>
+				</td>
+				
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+    <a href="/addNew" style="background-color: #007bff; color: #fff; padding: 10px 15px; border-radius: 5px; text-decoration: none;">Add Payroll</a>
+
+	<div class="footer">
+		<p>&copy; 2023 Employee Management System</p>
+	</div>
+
+</body>
+</html>
