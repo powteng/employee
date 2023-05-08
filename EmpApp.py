@@ -8,6 +8,7 @@ from botocore.client import Config
 from botocore.handlers import disable_signing
 from employee import add_employee, edit_employee, list_employee, delete_employee, select_employee
 from leave import add_leave, list_leave, delete_leave
+from payroll import add_payroll, list_payroll, delete_payroll
 
 app = Flask(__name__)
 
@@ -51,7 +52,8 @@ def AddEmp():
     gender = request.form['gender']
     photo = request.files['photo']
     ic = request.form['ic']
-    return render_template('employee/AddEmpOutput.html', name=add_employee(fn, role, email, gender, phone, photo, ic))    
+    name= add_employee(fn, role, email, gender, phone, photo, ic)
+    return redirect('/view_emp')    
 
 #delete employee
 @app.route("/delete_emp/<id>", methods=['GET'])
@@ -84,7 +86,7 @@ def gotoAddLeave():
 @app.route("/apply_leave", methods=['POST'])
 def addLeave():
     add_leave(request.form)
-    return render_template('index.html')
+    return redirect('/listLeave')
 
 #view leave
 @app.route("/listLeave", methods=['GET'])
@@ -96,6 +98,33 @@ def viewLeave():
 def delLeave(id):
     delete_leave(id)
     return redirect('/listLeave') 
+
+#go to payroll main page
+@app.route("/leave", methods=['GET', 'POST'])
+def payrollMain():
+    return render_template('payroll/payrollmain.html')
+
+#go to add payroll page
+@app.route("/payroll", methods=['GET', 'POST'])
+def gotoAddPayroll():
+    return render_template('payroll/payroll.html', employees=list_employee())
+
+#add payroll to database
+@app.route("/addpayroll", methods=['POST'])
+def addPayroll():
+    add_payroll(request.form)
+    return redirect('/listpayroll')
+
+#list payroll
+@app.route("/listLeave", methods=['GET'])
+def viewLeave():
+    return render_template('payroll/listpayroll.html', payroll=list_payroll())
+
+#delete payroll
+@app.route("/delete_payroll/<id>", methods=['GET'])
+def delPayroll(id):
+    delete_payroll(id)
+    return redirect('/listpayroll') 
 
 
 if __name__ == '__main__':
