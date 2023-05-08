@@ -117,19 +117,19 @@
             <input type="text" id="employee-name" name="employee-name" placeholder="Enter your name" required>
     
             <label for="leave-type" style="width: 50%;">Leave Type</label>
-<select id="leave-type" name="leave-type" required style="width: 50%;height:50px">
-    <option value="">Select Leave Type</option>
-    <option value="annual-leave">Annual Leave</option>
-    <option value="sick-leave">Sick Leave</option>
-    <option value="maternity-leave">Maternity Leave</option>
-    <option value="paternity-leave">Paternity Leave</option>
-</select>
+	    <select id="leave-type" name="leave-type" required style="width: 50%;height:50px">
+		<option value="">Select Leave Type</option>
+	    	<option value="annual-leave">Annual Leave</option>
+	    	<option value="sick-leave">Sick Leave</option>
+	    	<option value="maternity-leave">Maternity Leave</option>
+	    	<option value="paternity-leave">Paternity Leave</option>
+		</select>
 
-<label for="start-date" style="width: 50%;margin-top:20px">Start Date</label>
-<input type="date" id="start-date" name="start-date" required style="width: 50%;height:50px">
+ 	    <label for="start-date" style="width: 50%;margin-top:20px">Start Date</label>
+	    <input type="date" id="start-date" name="start-date" required style="width: 50%;height:50px">
 
-<label for="end-date" style="width: 50%;margin-top:20px">End Date</label>
-<input type="date" id="end-date" name="end-date" required style="width: 50%;height:50px">
+	    <label for="end-date" style="width: 50%;margin-top:20px">End Date</label>
+	    <input type="date" id="end-date" name="end-date" required style="width: 50%;height:50px">
     
             <label for="reason" style="margin-top:20px">Reason</label>
             <textarea id="reason" name="reason" placeholder="Enter the reason for leave" required></textarea>
@@ -148,7 +148,35 @@
 		  alert("Leave application submitted successfully!");
 		});
 	  </script>
+	<script>
+	  const startDateInput = document.getElementById("start-date");
+	  const endDateInput = document.getElementById("end-date");
 
+	  // set min and default value of start date to today's date
+	  const today = new Date();
+	  const year = today.getFullYear();
+	  let month = today.getMonth() + 1;
+	  if (month < 10) {
+	    month = "0" + month;
+	  }
+	  let day = today.getDate();
+	  if (day < 10) {
+	    day = "0" + day;
+	  }
+	  const todayFormatted = `${year}-${month}-${day}`;
+	  startDateInput.setAttribute("min", todayFormatted);
+	  startDateInput.setAttribute("value", todayFormatted);
+
+	  // validate end date cannot be in front of start date
+	  startDateInput.addEventListener("change", () => {
+	    const startDate = new Date(startDateInput.value);
+	    const endDate = new Date(endDateInput.value);
+	    if (startDate.getTime() > endDate.getTime()) {
+	      endDateInput.value = startDateInput.value;
+	    }
+	    endDateInput.setAttribute("min", startDateInput.value);
+	  });
+	</script>
 	<div class="footer">
 		<p>&copy; 2023 Employee Management System</p>
 	</div>
