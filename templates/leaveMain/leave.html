@@ -113,8 +113,13 @@
 	<div class="content" >
         <h2 style="text-align:center;">Leave Application</h2>
         <form method="POST" action="/apply_leave" style="margin-bottom:100px">
-            <label for="employee-name">Employee Name</label>
-            <input type="text" id="employee-name" name="employee-name" placeholder="Enter your name" required>
+            <label for="employee-name" style="width: 50%;margin-top:20px;height:50px">Employee Name</label>
+		<select id="employee-name" name="employee-name" required>
+		    <option value="">Select an employee</option>
+		    {% for employee in employees %}
+		    <option value="{{ employee.full_name }}">{{ employee.full_name }}</option>
+		    {% endfor %}
+		</select>
     
             <label for="leave-type" style="width: 50%;">Leave Type</label>
 	    <select id="leave-type" name="leave-type" required style="width: 50%;height:50px">
