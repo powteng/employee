@@ -89,7 +89,7 @@ def addLeave():
 #view leave
 @app.route("/listLeave", methods=['GET'])
 def viewLeave():
-    return render_template('leaveMain/istLeave.html', employees=list_employee())
+    return render_template('leaveMain/listLeave.html', employees=list_employee())
 
 
 if __name__ == '__main__':
