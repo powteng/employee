@@ -41,7 +41,7 @@ def list_leave():
     with cursor as cursor_:
         sql = "SELECT l.*, e.s3_photo_key FROM `" + table  + "` l JOIN employee e ON l.emp_name = e.full_name WHERE is_Deleted = 0"    
         cursor_.execute(sql)
-        employees = cursor.fetchall()
+        leaves = cursor.fetchall()
         cursor_.close()
 
     db_close(conn)
