@@ -36,7 +36,8 @@ def list_payroll():
   cursor = conn.cursor(DictCursor)
 
   with cursor as cursor_:
-      sql = "SELECT l.*, e.* FROM `" + table  + "` l JOIN employee e ON l.emp_id = e.emp_id WHERE is_Deleted = 0"    
+      SELECT p.*, e.* FROM " + table +" p JOIN employee e ON p.emp_id = e.emp_id WHERE p.is_Deleted = 0;
+   
       cursor_.execute(sql)
       payroll = cursor.fetchall()
       cursor_.close()
