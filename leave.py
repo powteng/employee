@@ -47,3 +47,16 @@ def list_list():
     db_close(conn)
 
     return leaves
+
+def del_leave(id):
+    conn = db_conn()
+    cursor = conn.cursor()
+
+    with cursor as cursor_:
+        sql = "UPDATE `" + table + "` SET is_Deleted = 1 WHERE leave_id = " + str(id) 
+
+        cursor_.execute(sql)
+        conn.commit()
+        cursor_.close()
+
+    db_close(conn)
