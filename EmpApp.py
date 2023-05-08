@@ -73,6 +73,11 @@ def UpdateEmpRec():
 #user management
 @app.route("/leave", methods=['GET', 'POST'])
 def leaveMain():
+    return render_template('leaveMain/leavemain.html')
+
+#user management
+@app.route("/addLeave", methods=['GET', 'POST'])
+def gotoAddLeave():
     return render_template('leaveMain/leave.html', employees=list_employee())
 
 @app.route("/apply_leave", methods=['POST'])
