@@ -114,7 +114,7 @@
         <h2 style="text-align:center;">Leave Application</h2>
         <form method="POST" action="/apply_leave" style="margin-bottom:100px">
             <label for="employee-name" style="width: 50%;margin-top:20px;height:50px">Employee Name</label>
-		<select id="employee-name" name="employee-name" required>
+		<select id="employee-name" name="employee-name" required style="width: 50%;height:50px">
 		    <option value="">Select an employee</option>
 		    {% for employee in employees %}
 		    <option value="{{ employee.full_name }}">{{ employee.full_name }}</option>
