@@ -7,7 +7,7 @@ from botocore import UNSIGNED
 from botocore.client import Config
 from botocore.handlers import disable_signing
 from employee import add_employee, edit_employee, list_employee, delete_employee, select_employee
-from leave import add_leave
+from leave import add_leave, list_leave, delete_leave
 
 app = Flask(__name__)
 
@@ -89,7 +89,13 @@ def addLeave():
 #view leave
 @app.route("/listLeave", methods=['GET'])
 def viewLeave():
-    return render_template('leaveMain/listLeave.html', employees=list_employee())
+    return render_template('leaveMain/listLeave.html', leaves=list_leave())
+
+#delete leave
+@app.route("/delete_leave/<id>", methods=['GET'])
+def delLeave(id):
+    delete_leave(id)
+    return redirect('/listLeave') 
 
 
 if __name__ == '__main__':
